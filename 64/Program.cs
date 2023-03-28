@@ -5,25 +5,21 @@ Console.Clear();
 Console.Write("Enter N: ");
 int N = Convert.ToInt32(Console.ReadLine());
 
-nt n = InputInt("Введите положительное число");
-int m = 1;
-if (n < 1)
+if (N < 1)
 {
-    Console.WriteLine("Ввели не положительное число");
+    Console.WriteLine("Error: entered number must positive");
 }
-Console.WriteLine(NaturalNumber(n, m));
-
-int NaturalNumber(int n, int m)
+else
 {
-    if (n == m)
-        return n;
-    else
-        Console.Write($"{NaturalNumber(n, m + 1)}, ");
-    return m;
+    PrintUptoNumber(N);
 }
 
-int InputInt(string output)
+void PrintUptoNumber(int N)
 {
-    Console.Write(output);
-    return int.Parse(Console.ReadLine());
+
+    Console.WriteLine(N);
+
+    if (N > 1)
+        PrintUptoNumber(N - 1);
+
 }
