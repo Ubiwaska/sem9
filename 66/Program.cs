@@ -7,22 +7,29 @@ int M = Convert.ToInt32(Console.ReadLine());
 Console.Write("Enter N: ");
 int N = Convert.ToInt32(Console.ReadLine());
 
-int temp = M;
 
 if (M > N)
 {
     Console.Write("Error: N cannot be greater than M ");
 }
-
-PrintSum(M, N, temp = 0);
-
-void PrintSum(int M, int N, int Sum)
+else
 {
-    Sum = Sum + N;
-    if (N <= M)
-    {
-        Console.Write($"Sum = {Sum} ");
-        return;
-    }
-    PrintSum(M, N - 1, Sum);
+
+    int Sum = ComputeTheSum(M, N);
+    Console.Write($"Sum = {Sum} ");
+
+}
+
+int ComputeTheSum(int M, int N)
+{
+
+    int result;
+
+    if (N < M)
+        return 0;
+
+    result = ComputeTheSum(M, N - 1) + N;
+    return result;
+
+
 }
